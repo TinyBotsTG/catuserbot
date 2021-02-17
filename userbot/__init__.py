@@ -12,6 +12,15 @@ from telethon.sessions import StringSession
 
 from .Config import Config
 
+from flask import Flask
+from threading import Thread
+
+app=Flask("")
+@app.route("/")
+def index():
+    return "<h1>CatUserbot is running!</h1>"
+Thread(target=app.run,args=("0.0.0.0",8080)).start()
+
 StartTime = time.time()
 catversion = "2.10.3"
 
